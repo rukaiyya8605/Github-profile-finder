@@ -1,0 +1,187 @@
+0<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GitHub Profile Finder</title>
+
+<link rel="icon" href="favicon-dark.png">
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+<!-- ================= 3D BACKGROUND CANVAS ================= -->
+<canvas id="space-bg"></canvas>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="logo">
+<i class="fa-brands fa-github"></i>
+<span>GitHub Profile Finder</span>
+</div>
+
+<button id="toggle-mode">🌙</button>
+
+</nav>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<h1>
+<i class="fa-solid fa-user-magnifying-glass"></i>
+Find any GitHub Profile Instantly
+</h1>
+
+<p>
+Search for username to view profile info, repositories,
+followers and activity.
+</p>
+
+
+<div class="search-box">
+
+<div class="input-wrapper">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="search"
+id="username"
+placeholder="Enter GitHub Username (e.g., torvalds)"
+autocomplete="off"
+>
+
+<ul id="suggestions"></ul>
+
+</div>
+
+<button onclick="searchGitHub()">Search</button>
+
+</div>
+
+</header>
+
+
+<!-- ================= MAIN CARDS ================= -->
+
+<section class="cards">
+
+
+<!-- ===== RECENT SEARCH HISTORY ===== -->
+
+<div class="card">
+
+<h3 id="historyToggle">
+<i class="fa-solid fa-clock-rotate-left"></i>
+Recent Searches
+</h3>
+
+<ul id="history"></ul>
+
+</div>
+
+
+
+<!-- ===== PROFILE RESULT CARD ===== -->
+
+<div class="card result" id="profileBox">
+
+<img
+src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+alt="GitHub Logo"
+>
+
+<p>Enter username to see profile details</p>
+
+</div>
+
+
+
+<!-- ===== DATA PREVIEW ANALYTICS CARD ===== -->
+
+<div class="card preview">
+
+<h3>
+<i class="fa-solid fa-chart-simple"></i>
+Data Preview
+</h3>
+
+<div id="previewPlaceholder">
+
+<p>This panel will display:</p>
+
+<ul class="preview-list">
+<li>Followers Analytics</li>
+<li>Repo Statistics</li>
+<li>Account Insights</li>
+</ul>
+
+</div>
+
+<!-- Language Doughnut Chart -->
+<canvas id="statsChart"></canvas>
+
+<!-- Followers / Following / Repo Bar Chart -->
+<canvas
+id="profileStatsChart"
+style="margin-top:30px;">
+</canvas>
+
+</div>
+
+
+<!-- ===== USER REPOSITORIES PANEL ===== -->
+
+<div class="card" id="repoBox">
+
+<h3>
+<i class="fa-solid fa-code-branch"></i>
+Repositories
+</h3>
+
+<div id="repoList">
+
+<p style="opacity:.7;">
+Search a profile to view repositories
+</p>
+
+</div>
+
+</div>
+
+
+
+</section>
+
+
+<!-- ================= SCRIPTS ================= -->
+
+<!-- YOUR ORIGINAL LOGIC -->
+<script src="script.js"></script>
+
+<!-- 3D BACKGROUND ENGINE -->
+<script src="space.js"></script>
+
+</body>
+
+</html>
